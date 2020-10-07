@@ -1,0 +1,325 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+}
+Viewpoint {
+  orientation -0.9999935293724754 -0.0014221256976617203 -0.00330435646992738 1.6420348502952478
+  position 0.944561072756056 8.954284318383896 -0.6191335544510234
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+  backUrl [
+    ""
+  ]
+}
+DirectionalLight {
+  direction 0 -1 0
+}
+DEF e-puck_2 E-puck {
+  translation -0.695802 -0.000110606 -0.244844
+  rotation -0.0020497901872035627 0.9999973351967075 0.0010620544582294214 -1.414196681543958
+  name "e-puck_2"
+  controller "field_theory_controller"
+  customData "{'food_position': [-0.5994003454507019, 0.09991835647791003, -0.5985106189661803, 9.289761522534535e-05], 'e-puck_1': [-0.5695518901568443, -5.369400335974474e-05, -0.7351407225825723, 3.0041231611369184]}"
+  supervisor TRUE
+  camera_width 640
+  camera_height 480
+  turretSlot [
+    InertialUnit {
+    }
+    GPS {
+    }
+    Camera {
+      translation 0 0.03 0
+      name "recognization_camera"
+      width 640
+      height 480
+      recognition Recognition {
+      }
+    }
+  ]
+}
+DEF e-puck_3 E-puck {
+  translation 0.0593613 -8.10429e-05 -0.585249
+  rotation -0.000536954731767626 0.9999996665811911 -0.000615237452291161 -2.659990177839241
+  name "e-puck_3"
+  controller "field_theory_controller"
+  customData "{'food_position': [-0.5994003454507019, 0.09991835647791003, -0.5985106189661803, 9.289761522534535e-05]}"
+  supervisor TRUE
+  camera_width 640
+  camera_height 480
+  turretSlot [
+    InertialUnit {
+    }
+    GPS {
+    }
+    Camera {
+      translation 0 0.03 0
+      name "recognization_camera"
+      width 640
+      height 480
+      recognition Recognition {
+      }
+    }
+  ]
+}
+DEF e-puck_1 E-puck {
+  translation -0.571117 -5.01744e-05 -0.785469
+  rotation 0.0017775507359078216 0.9999984140003656 0.00011095104593384642 -2.821125307179586
+  name "e-puck_1"
+  controller "field_theory_controller"
+  customData "{'food_position': [-0.5994003454507019, 0.09991835647791003, -0.5985106189661803, 9.289761522534535e-05], 'e-puck_2': [-0.6614591646756093, -0.0001062940096862551, -0.26516923887413285, -0.7056049286412882]}"
+  supervisor TRUE
+  camera_width 640
+  camera_height 480
+  turretSlot [
+    InertialUnit {
+    }
+    GPS {
+    }
+    Camera {
+      translation 0 0.03 0
+      name "recognization_camera"
+      width 640
+      height 480
+      recognition Recognition {
+      }
+    }
+  ]
+}
+DEF WALL-1 Solid {
+  translation 0 0.1 1
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 2 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-2 Solid {
+  translation 0 0.1 -1
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 2 0.2 0.01
+      }
+    }
+  ]
+  name "solid3"
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-3 Solid {
+  translation 1 0.1 0
+  rotation 0 1 0 1.5708
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 2 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-4 Solid {
+  translation -1 0.1 0
+  rotation 0 1 0 1.5708
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 2 0.2 0.01
+      }
+    }
+  ]
+  name "solid4"
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF FLOOR Solid {
+  translation 0 -0.005 0
+  children [
+    DEF FLOOR-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 1
+        }
+        textureTransform TextureTransform {
+          scale 5 5
+        }
+      }
+      geometry Box {
+        size 2 0.01 2
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE FLOOR-SHAPE
+    ]
+  }
+}
+DEF food Solid {
+  translation -0.6 0.0999206 -0.6
+  rotation -6.40354997903771e-05 0.9999999967264579 -4.9462499838082425e-05 0
+  children [
+    DEF food Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "textures/desktop_wood.jpg"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.2 0.2 0.2
+      }
+    }
+  ]
+  name "food"
+  boundingObject USE food
+  physics Physics {
+    mass 0.2
+    damping Damping {
+    }
+  }
+  recognitionColors [
+    1 0 0
+  ]
+}
+Robot {
+  children [
+    Camera {
+      translation 0 2.5 0
+      rotation 1 0 0 -1.57
+      name "supervisor_camera"
+      width 640
+      height 640
+      recognition Recognition {
+      }
+    }
+    Emitter {
+      channel 1
+      byteSize 16
+    }
+  ]
+  controller "swarm_supervisor"
+  customData "{1: [1, 2], 2: [3, 4]}"
+  supervisor TRUE
+}
+DEF obstacle_1 Solid {
+  translation 0.545046 0.0858838 -0.30014
+  rotation -0.7526455147996969 0.6046332091811187 0.2606595699513849 0.00017436237377896794
+  children [
+    DEF obstacle Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 0
+        }
+      }
+      geometry Box {
+        size 0.9 0.2 0.2
+      }
+    }
+  ]
+  name "obstacle_1"
+  boundingObject USE obstacle
+  physics Physics {
+  }
+  locked TRUE
+}
+DEF obstacle_2 Solid {
+  translation -0.669988 0.089796 0.151149
+  rotation 0.03548475269652622 -0.9990449089464808 -0.025497102466446035 0.0004596594100970801
+  children [
+    DEF obstacle Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 0
+        }
+      }
+      geometry Box {
+        size 0.65 0.2 0.2
+      }
+    }
+  ]
+  name "obstacle_2"
+  boundingObject USE obstacle
+  physics Physics {
+  }
+  locked TRUE
+}
+Solid {
+  translation -0.6 1e-05 0.6
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Plane {
+        size 0.02 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+}
+Solid {
+  translation -0.6 1e-05 0.6
+  rotation 0 1 0 1.5707996938995747
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Plane {
+        size 0.02 0.2
+      }
+    }
+  ]
+  name "solid(2)"
+}

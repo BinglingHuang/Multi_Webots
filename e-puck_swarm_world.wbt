@@ -1,0 +1,253 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+}
+Viewpoint {
+  orientation 0.590103979601584 0.7496169779664479 0.29975269740708466 5.0920714276959105
+  position -1.3092820973982482 1.4762546034561042 0.973924073591947
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+DirectionalLight {
+  direction 0 -1 0
+}
+E-puck {
+  hidden position_0_0 221.05755235313237
+  hidden position_0_1 232.34300131332944
+  hidden rotation_1 -1 0 0 0.80894865886666
+  hidden rotation_2 1 0 0 6.139102155097378
+  translation -0.3017790193541797 -0.00011331084951229226 0.027559886467866074
+  rotation 0.0008448899848689418 -0.9999996342120977 0.00013317876735586355 -2.808243471043811
+  name "e-puck(1)"
+  controller "my_controller1"
+  supervisor TRUE
+  camera_width 640
+  camera_height 480
+  turretSlot [
+    Camera {
+      translation 0 0.03 0
+      name "camera1"
+      recognitionColors [
+        1 0 0
+      ]
+      width 640
+      height 480
+      recognition Recognition {
+      }
+    }
+  ]
+}
+E-puck {
+  hidden position_0_0 69.24562380763287
+  hidden position_0_1 76.46648502072374
+  hidden rotation_1 -1 0 0 3.433039517110182
+  hidden rotation_2 1 0 0 5.839526076472761
+  translation -0.5861046061596368 -7.284453037040284e-05 0.34817804143557746
+  rotation 0.0009245533634890164 -0.9999992158285556 -0.0008447149530904659 -2.009338253677786
+  name "e-puck(2)"
+  controller "my_controller1"
+  supervisor TRUE
+  camera_width 640
+  camera_height 480
+  turretSlot [
+    Camera {
+      translation 0 0.03 0
+      name "camera1"
+      recognitionColors [
+        1 0 0
+      ]
+      width 640
+      height 480
+      recognition Recognition {
+      }
+    }
+  ]
+}
+DEF WALL-1 Solid {
+  translation 0 0.1 0.75
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 1.5 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-2 Solid {
+  translation 0 0.1 -0.75
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 1.5 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-3 Solid {
+  translation 0.75 0.1 0
+  rotation 0 1 0 1.5708
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 1.5 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF WALL-4 Solid {
+  translation -0.75 0.1 0
+  rotation 0 1 0 1.5708
+  children [
+    DEF WALL-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.215686 0.156863
+        }
+      }
+      geometry Box {
+        size 1.5 0.2 0.01
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE WALL-SHAPE
+    ]
+  }
+}
+DEF FLOOR Solid {
+  translation 0 -0.005 0
+  children [
+    DEF FLOOR-SHAPE Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "textures/grid.png"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 5 5
+        }
+      }
+      geometry Box {
+        size 1.5 0.01 1.5
+      }
+    }
+  ]
+  boundingObject Group {
+    children [
+      USE FLOOR-SHAPE
+    ]
+  }
+}
+DEF FOOD Solid {
+  translation -0.00356973 0.0987662 -0.000633174
+  rotation 0 1 0 3.141592653589793
+  children [
+    Group {
+      children [
+        DEF box Solid {
+          children [
+            DEF box Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 1 1 1
+                  emissiveColor 1 1 1
+                }
+              }
+              geometry Box {
+                size 0.2 0.2 0.2
+              }
+            }
+          ]
+          boundingObject USE box
+          physics Physics {
+          }
+        }
+        DEF box1 Solid {
+          translation 0.1 0 0
+          children [
+            DEF box2 Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 1 0 0
+                  emissiveColor 1 0 0
+                }
+              }
+              geometry Box {
+                size 0.001 0.2 0.2
+              }
+            }
+          ]
+          name "solid(1)"
+          boundingObject USE box2
+          physics Physics {
+          }
+        }
+      ]
+    }
+    PointLight {
+      color 1 0 0
+      intensity 0.275
+      location 0 -0.075 0
+      radius 0.01
+      castShadows TRUE
+    }
+  ]
+  name "solid(1)"
+  boundingObject DEF FOOD-SHAPE Shape {
+    appearance Appearance {
+      material Material {
+        diffuseColor 1 0 0
+        emissiveColor 1 0 0
+      }
+    }
+    geometry Box {
+      size 0.2 0.2 0.2
+    }
+  }
+  physics Physics {
+    density -1
+    mass 0.35
+  }
+  recognitionColors [
+    0 0 0
+  ]
+}
